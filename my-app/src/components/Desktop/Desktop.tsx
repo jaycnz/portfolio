@@ -15,8 +15,8 @@ export function Desktop() {
     <div className="relative w-full h-screen bg-zinc-100 dark:bg-zinc-950">
       {/* Folders on desktop */}
       <div className="flex flex-wrap gap-4 p-6">
-        <Folder name="Designs" onClick={() => openWindow('About Me')} />
-        <Folder name="About Me" onClick={() => openWindow('Designs')} />
+        <Folder name="About Me" onClick={() => openWindow('About Me')} />
+        <Folder name="Designs" onClick={() => openWindow('Designs')} />
         <Folder name="Projects" onClick={() => openWindow('Projects')} />
       </div>
     </div>
