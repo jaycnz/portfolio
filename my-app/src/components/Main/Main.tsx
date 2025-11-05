@@ -1,10 +1,10 @@
-import { Title } from '../Title'
+import { Desktop } from '../Desktop'
 
 
 export function Main() {
   return (
     <div>
-        <Title/>
+        <Desktop/>
     </div>
   )
 }
