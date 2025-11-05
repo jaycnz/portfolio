@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function Folder(props) {
+export function Folder(props: { name: string; onClick: () => void }) {
 
   const [isHovered, setHover] = useState(false)
 
