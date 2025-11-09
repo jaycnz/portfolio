@@ -14,5 +14,9 @@ export function useWindowManager() {
     });
   }
 
-  return { windows, openWindow };
+  function closeWindow(windowName: string) {
+    setWindows(windows.filter(window => window !== windowName));
+  }
+
+  return { windows, openWindow, closeWindow };
 }
