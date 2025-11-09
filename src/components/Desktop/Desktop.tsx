@@ -1,15 +1,16 @@
 'use client'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Folder } from '../Folder';
+import { useWindowManager } from '../useWindowManager';
 
 export function Desktop() {
-  const [windows, setWindows] = useState([]);
+  const { windows, openWindow } = useWindowManager();
 
-  function openWindow(windowName: String) {
-    // should open window corresponding to name of window
-    return null
-  }
+  useEffect(() => {
+    console.log('Open windows:', windows);
+  }, [windows]);
+
 
   return (
     <div className="relative w-full h-screen bg-zinc-100 dark:bg-zinc-950">
