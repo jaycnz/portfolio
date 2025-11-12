@@ -1,5 +1,4 @@
 import { ReactNode } from 'react';
-import Draggable from 'react-draggable';
 
 interface WindowWrapperProps {
   id: string;
@@ -21,20 +20,17 @@ export function WindowWrapper({
   height,
 }: WindowWrapperProps) {
   return (
-    <div>
-      <Draggable handle=".window-header">
-        <div
-          style={{ width, height, zIndex: priority }}
-          className="stroker border bg-black absolute top-20 left-20"
-          //drag logic for later
-        >
-          <div className="flex justify-between items-center border-b pb-1 px-3">
-            <h2 className="font-bold">{title}</h2>
-            <button onClick={() => onClose(id)}>✕</button>
-          </div>
-          <div className="p-2">{children}</div>
-        </div>
-      </Draggable>
+    <div
+      style={{ width, height, zIndex: priority }}
+      className="stroker border bg-black absolute top-20 left-20"
+      //drag logic for later
+    >
+      <div className="flex justify-between items-center border-b pb-1 px-3">
+        <h2 className="font-bold">{title}</h2>
+        <button onClick={() => onClose(id)}>✕</button>
+      </div>
+      <div className="p-2">{children}</div>
     </div>
+
   );
 }
