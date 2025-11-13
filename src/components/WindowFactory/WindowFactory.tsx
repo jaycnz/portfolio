@@ -9,7 +9,7 @@ export function WindowFactory({ windows, onClose }: { windows: any[], onClose: (
         switch (window) {
           case 'aboutmedocument':
             return (
-              <WindowWrapper title="About me" key={window} priority={index} height={400} width={300} id={window} onClose={onClose}>
+              <WindowWrapper title="About me" key={window} priority={index} height={550} width={400} id={window} onClose={onClose}>
                 <AboutMe/>
               </WindowWrapper>
             );
