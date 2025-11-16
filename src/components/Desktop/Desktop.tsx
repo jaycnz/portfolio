@@ -2,8 +2,10 @@
 
 import { useEffect } from 'react';
 import { Folder } from '../Folder';
+import { Document } from '../Document';
 import { useWindowManager } from '../useWindowManager/useWindowManager';
 import { WindowFactory } from '../WindowFactory/WindowFactory';
+import { Designs } from '../WindowFactory/WindowTypes/Designs';
 
 export function Desktop() {
   const { windows, openWindow, closeWindow } = useWindowManager();
@@ -16,13 +18,15 @@ export function Desktop() {
     <div className="relative w-full h-screen bg-zinc-100 dark:bg-zinc-950">
       {/* Folders on desktop */}
       <div className="flex flex-wrap gap-4 p-6">
-        <Folder name="About Me" onClick={() => openWindow('aboutmedocument')} />
+        <Document name="About Me" onClick={() => openWindow('aboutmedocument')} />
         <Folder name="Designs" onClick={() => openWindow('designs')} />
         <Folder name="Projects" onClick={() => openWindow('projects')} />
       </div>
 
       {/* Render windows */}
-      <WindowFactory windows={windows} onClose={closeWindow} />
+      <WindowFactory windows={windows} onClose={closeWindow} openWindow={openWindow} />
+
+
     </div>
   );
 }

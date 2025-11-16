@@ -1,8 +1,9 @@
 import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
+import { Designs } from './WindowTypes/Designs';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
-export function WindowFactory({ windows, onClose }: { windows: any[], onClose: (id: string) => void }) {
+export function WindowFactory({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
   return (
     <>
       {windows.map((window, index) => {
@@ -13,12 +14,12 @@ export function WindowFactory({ windows, onClose }: { windows: any[], onClose: (
                 <AboutMe/>
               </WindowWrapper>
             );
-          // case 'designs':
-          //   return (
-          //     <WindowWrapper key={win.id} {...win} onClose={onClose}>
-          //     <FileWindow images={win.content?.images} />
-          //   </WindowWrapper>
-          //   );
+          case 'designs':
+            return (
+              <WindowWrapper title="Designs" key={window} priority={index} height={550} width={400} id={window} onClose={onClose}>
+                <Designs openWindow={openWindow}/>
+              </WindowWrapper>
+            );
           // case 'projects':
           //   return (
           //     <WindowWrapper key={win.id} {...win} onClose={onClose}>
