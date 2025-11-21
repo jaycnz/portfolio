@@ -1,6 +1,7 @@
 import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
 import { Designs } from './WindowTypes/Designs';
+import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
 export function WindowFactory({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
@@ -20,6 +21,13 @@ export function WindowFactory({ windows, onClose, openWindow }: { windows: any[]
                 <Designs openWindow={openWindow}/>
               </WindowWrapper>
             );
+
+            case 'GenAIPrompting':
+              return (
+                <WindowWrapper title="Generative AI Visual Prompting" key={window} priority={index} height={550} width={400} id={window} onClose={onClose}>
+                  <GenAIVisuals overflow-hidden/>
+                </WindowWrapper>
+              );
           // case 'projects':
           //   return (
           //     <WindowWrapper key={win.id} {...win} onClose={onClose}>

@@ -15,7 +15,7 @@ export function Desktop() {
   }, [windows]);
 
   return (
-    <div className="relative w-full h-screen bg-zinc-100 dark:bg-zinc-950">
+    <div className="relative w-full h-screen">
       {/* Folders on desktop */}
       <div className="flex flex-wrap gap-4 p-6">
         <Document name="About Me" onClick={() => openWindow('aboutmedocument')} />
