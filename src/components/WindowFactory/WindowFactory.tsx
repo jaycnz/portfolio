@@ -24,8 +24,8 @@ export function WindowFactory({ windows, onClose, openWindow }: { windows: any[]
 
             case 'GenAIPrompting':
               return (
-                <WindowWrapper title="Generative AI Visual Prompting" key={window} priority={index} height={550} width={400} id={window} onClose={onClose}>
-                  <GenAIVisuals overflow-hidden/>
+                <WindowWrapper title="Generative AI Visual Prompting" key={window} priority={index} height={550} width={600} id={window} onClose={onClose}>
+                  <GenAIVisuals/>
                 </WindowWrapper>
               );
           // case 'projects':
