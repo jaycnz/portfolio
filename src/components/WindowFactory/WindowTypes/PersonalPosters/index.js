@@ -1,0 +1,1 @@
+export { PersonalPosters } from './PersonalPosters'

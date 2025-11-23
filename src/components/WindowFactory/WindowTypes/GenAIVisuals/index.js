@@ -1,0 +1,1 @@
+export { GenAIVisuals } from './GenAIVisuals'
