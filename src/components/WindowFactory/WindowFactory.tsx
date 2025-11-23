@@ -2,6 +2,7 @@ import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
 import { Designs } from './WindowTypes/Designs';
 import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
+import { PersonalPosters } from './WindowTypes/PersonalPosters/PersonalPosters';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
 export function WindowFactory({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
@@ -28,12 +29,12 @@ export function WindowFactory({ windows, onClose, openWindow }: { windows: any[]
                   <GenAIVisuals/>
                 </WindowWrapper>
               );
-          // case 'projects':
-          //   return (
-          //     <WindowWrapper key={win.id} {...win} onClose={onClose}>
-          //       <DocumentWindow text={win.content?.text} />
-          //     </WindowWrapper>
-          //   );
+          case 'PersonalPosters':
+            return (
+              <WindowWrapper title="Personal Posters" key={window} priority={index} height={600} width={600} id={window} onClose={onClose}>
+                <PersonalPosters/>
+              </WindowWrapper>
+            );
           default:
             return null;
         }

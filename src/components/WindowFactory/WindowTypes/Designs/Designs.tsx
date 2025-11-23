@@ -9,7 +9,7 @@ export function Designs({ openWindow }: DesignsProps) {
     return (
       <div className="flex p-4 space-y-4">
 
-      <Folder name="Personal Posters" onClick={() => openWindow('aboutme')} />
+      <Folder name="Personal Posters" onClick={() => openWindow('PersonalPosters')} />
       <Folder name="GenAI Prompting" onClick={() => openWindow('GenAIPrompting')} />
       {/* <Folder name="Sports " onClick={() => openWindow('designs')} /> */}
 
