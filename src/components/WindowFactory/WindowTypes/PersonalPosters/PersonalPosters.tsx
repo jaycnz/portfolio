@@ -23,7 +23,7 @@ export function PersonalPosters() {
           '/PersonalPosters/10_fireman-red.png',
           '/PersonalPosters/11_PEACEMAKER.png',
           '/PersonalPosters/12_KKF.png',
-          '/PersonalPosters/12_PARADES.png',
+          '/PersonalPosters/13_PARADES.png',
         ]}></Carousel>
         </div>
 

@@ -31,7 +31,7 @@ export function WindowFactory({ windows, onClose, openWindow }: { windows: any[]
               );
           case 'PersonalPosters':
             return (
-              <WindowWrapper title="Personal Posters" key={window} priority={index} height={600} width={600} id={window} onClose={onClose}>
+              <WindowWrapper title="Personal Posters" key={window} priority={index} height={650} width={600} id={window} onClose={onClose}>
                 <PersonalPosters/>
               </WindowWrapper>
             );
