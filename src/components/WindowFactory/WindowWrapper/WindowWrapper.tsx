@@ -27,7 +27,7 @@ export function WindowWrapper({
   const nodeRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Draggable nodeRef={nodeRef} handle=".window-header" bounds="parent">
+    <Draggable nodeRef={nodeRef} handle=".window-header" bounds="body">
       <div
         ref={nodeRef}
         style={{ width, height, zIndex: priority }}
