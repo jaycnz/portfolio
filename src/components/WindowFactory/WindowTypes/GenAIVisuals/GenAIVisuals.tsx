@@ -4,8 +4,8 @@ import Carousel from 'react-bootstrap/Carousel';
 // src/components/WindowTypes/AboutMe.tsx
 export function GenAIVisuals() {
   return (
-    <div className="TEST flex flex-col items-center p-4 space-y-4 overflow-scroll h-126">
-        <h1>14 Day Generative AI Visual Prompting Challenge</h1>
+    <div className="TEST flex flex-col p-4 space-y-4 overflow-scroll h-126">
+        <h1 className="flex font-bold text-xl">14 Day Generative AI Visual Prompting Challenge</h1>
         <p>blah blah blah description blah blah</p>
         <p>blah blah blah description blah blah</p>
         <img src={'https://picsum.photos/200'}></img>
