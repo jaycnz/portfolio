@@ -1,8 +1,8 @@
 import * as React from "react"
 
-import { Card } from "/components/ui/card"
+import { Card, CardContent } from '@/components/ui/card';
 import {
-  Carousel,
+  Carousel as CustomCarousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
@@ -16,22 +16,22 @@ interface CarouselProps {
 
 export function Carousel({images}: CarouselProps) {
   return (
-    <Carousel className="w-full max-w-xs">
+    <CustomCarousel className="w-full max-w-xs">
       <CarouselContent>
         {images.map((image, index) => (
           <CarouselItem key={index}>
             <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
+              {/* <Card> */}
+                {/* <CardContent className="flex aspect-square items-center justify-center p-6"> */}
+                    <img src={image}></img>
+                {/* </CardContent> */}
+              {/* </Card> */}
             </div>
           </CarouselItem>
         ))}
       </CarouselContent>
       <CarouselPrevious />
       <CarouselNext />
-    </Carousel>
+    </CustomCarousel>
   )
 }
