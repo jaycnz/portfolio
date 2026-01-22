@@ -6,7 +6,7 @@ import { Document } from '../Document';
 import { useWindowManager } from '../useWindowManager/useWindowManager';
 import { WindowFactory } from '../WindowFactory/WindowFactory';
 import { Designs } from '../WindowFactory/WindowTypes/Designs';
-import { FiFileText, FiBook, FiHeart, FiCloud, FiEdit, FiBarChart2 } from 'react-icons/fi'; // React Icons
+import { FiFileText, FiBook, FiHeart, FiCloud, FiEdit, FiBarChart2, FiCamera, FiImage, FiDribbble } from 'react-icons/fi'; // React Icons
 import GlassIcons from '@/components/GlassIcons'; // Adjusted relative path
 
 export function Desktop() {
@@ -18,12 +18,13 @@ export function Desktop() {
 
   // update with your own icons and colors
   const items = [
-    { icon: <FiFileText />, color: 'blue', label: 'Files' },
-    { icon: <FiBook />, color: 'purple', label: 'Books' },
-    { icon: <FiHeart />, color: 'red', label: 'Health' },
-    { icon: <FiCloud />, color: 'indigo', label: 'Weather' },
-    { icon: <FiEdit />, color: 'orange', label: 'Notes' },
-    { icon: <FiBarChart2 />, color: 'green', label: 'Stats' },
+    { icon: <FiFileText />, color: 'blue', label: 'About Me', onClick: () => openWindow('aboutmedocument') },
+    { icon: <FiImage />, color: 'purple', label: 'Generative AI Prompting', onClick: () => openWindow('GenAIPrompting') },
+    { icon: <FiCamera />, color: 'red', label: 'Photography', onClick: () => openWindow('photography') },
+    { icon: <FiDribbble />, color: 'indigo', label: 'Sports Team Media', onClick: () => window.open('https://www.instagram.com/assketballers/') },
+    { icon: <FiEdit />, color: 'orange', label: 'Mixed Media Art', onClick: () => window.open('https://www.instagram.com/designwithjayc/') },
+    { icon: <FiBook />, color: 'green', label: 'Church Camp Designs', onClick: () => openWindow('churchcampdesigns') },
+    // could add links later for compsci projects
   ];
 
 
@@ -31,16 +32,23 @@ export function Desktop() {
   return (
     <div className="relative w-full h-screen">
       {/* Folders on desktop */}
-      <div className="flex flex-wrap gap-4 p-6">
+      {/* <div className="flex flex-wrap gap-4 p-6">
         <Document name="About Me" onClick={() => openWindow('aboutmedocument')} />
         <Folder name="Designs" onClick={() => openWindow('designs')} />
         <Folder name="Projects" onClick={() => openWindow('projects')} />
-      </div>
+      </div> */}
 
-      <div style={{ height: '600px', position: 'relative' }}>
-        <GlassIcons items={items} className="custom-class"
-        />
-      </div>
+      
+    <div
+      style={{
+        height: '600px',
+        display: 'flex',
+        justifyContent: 'center',   // horizontal
+        alignItems: 'center',       // vertical
+      }}
+    >
+      <GlassIcons items={items} className="custom-class" colorful={false} />
+    </div>
 
       {/* Render windows */}
       <WindowFactory windows={windows} onClose={closeWindow} openWindow={openWindow} />
