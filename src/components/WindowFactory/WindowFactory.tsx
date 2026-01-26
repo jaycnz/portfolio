@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
 import { Designs } from './WindowTypes/Designs';
@@ -5,7 +6,7 @@ import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
 import { PersonalPosters } from './WindowTypes/PersonalPosters/PersonalPosters';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
-export function WindowFactory({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
+function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
   return (
     <>
       {windows.map((window, index) => {
@@ -42,3 +43,5 @@ export function WindowFactory({ windows, onClose, openWindow }: { windows: any[]
     </>
   );
 }
+
+export const WindowFactory = memo(WindowFactoryComponent);

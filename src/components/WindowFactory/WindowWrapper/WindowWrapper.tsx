@@ -1,6 +1,6 @@
 
 
-import { ReactNode, useRef } from 'react';
+import { ReactNode, useRef, memo } from 'react';
 import dynamic from 'next/dynamic';
 
 const Draggable = dynamic(() => import('react-draggable'), { ssr: false });
@@ -15,7 +15,7 @@ interface WindowWrapperProps {
   height?: number;
 }
 
-export function WindowWrapper({
+function WindowWrapperComponent({
   id,
   title,
   priority,
@@ -44,3 +44,5 @@ export function WindowWrapper({
 
   );
 }
+
+export const WindowWrapper = memo(WindowWrapperComponent);
