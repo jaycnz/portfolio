@@ -13,6 +13,7 @@ interface WindowWrapperProps {
   children: ReactNode;
   width?: number;
   height?: number;
+  isMobile?: boolean;
 }
 
 function WindowWrapperComponent({
@@ -23,20 +24,21 @@ function WindowWrapperComponent({
   children,
   width,
   height,
+  isMobile,
 }: WindowWrapperProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Draggable nodeRef={nodeRef} handle=".window-header" bounds="body">
+    <Draggable nodeRef={nodeRef} handle=".window-header" bounds="body" cancel=".no-drag"> 
       <div
         ref={nodeRef}
-        style={{ width, height, zIndex: priority }}
-        className="stroker border bg-black absolute top-20 left-20"
+        style={{ width, height, zIndex: priority, top: isMobile? '0px' : '20px', left: isMobile ? '0px' : '20px' }}
+        className="stroker border bg-black absolute"
         //drag logic for later
       >
         <div className="window-header flex justify-between items-center border-b pb-1 px-3">
           <h2 className="font-bold">{title}</h2>
-          <button onClick={() => onClose(id)}>✕</button>
+          <button className="no-drag" style={{zIndex: 1000}} onClick={() => onClose(id)}>✕</button>
         </div>
         <div className="p-2">{children}</div>
       </div>

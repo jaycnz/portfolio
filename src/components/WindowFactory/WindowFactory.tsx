@@ -1,32 +1,60 @@
-import { memo } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
 import { Designs } from './WindowTypes/Designs';
 import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
 import { PersonalPosters } from './WindowTypes/PersonalPosters/PersonalPosters';
+import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
 function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
+  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+    };
+
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+
   return (
     <>
       {windows.map((window, index) => {
+        const commonProps = {
+          key: window,
+          priority: index,
+          id: window,
+          onClose: onClose,
+          isMobile: isMobile,
+          width: isMobile ? windowWidth : 400,
+          height: isMobile ? windowHeight : 550,
+        };
         switch (window) {
           case 'aboutmedocument':
             return (
-              <WindowWrapper title="About me" key={window} priority={index} height={550} width={400} id={window} onClose={onClose}>
+              <WindowWrapper title="About me" {...commonProps}>
                 <AboutMe/>
               </WindowWrapper>
             );
           case 'designs':
             return (
-              <WindowWrapper title="Designs" key={window} priority={index} height={550} width={400} id={window} onClose={onClose}>
+              <WindowWrapper title="Designs" {...commonProps}>
                 <Designs openWindow={openWindow}/>
               </WindowWrapper>
             );
 
             case 'GenAIPrompting':
               return (
-                <WindowWrapper title="Generative AI Visual Prompting" key={window} priority={index} height={550} width={600} id={window} onClose={onClose}>
+                <WindowWrapper title="Generative AI Visual Prompting" {...commonProps}>
                   <GenAIVisuals/>
                 </WindowWrapper>
               );
@@ -36,6 +64,12 @@ function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any
                 <PersonalPosters/>
               </WindowWrapper>
             );
+            case 'churchdesigns':
+              return (
+                <WindowWrapper title="Church Camp Designs" {...commonProps}>
+                  <ChurchDesigns/>
+                </WindowWrapper>
+              );
           default:
             return null;
         }

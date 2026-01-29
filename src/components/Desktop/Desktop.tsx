@@ -23,7 +23,7 @@ export function Desktop() {
     { icon: <FiCamera />, color: 'red', label: 'Photography', onClick: () => openWindow('photography') },
     { icon: <FiDribbble />, color: 'indigo', label: 'Sports Team Media', onClick: () => window.open('https://www.instagram.com/assketballers/') },
     { icon: <FiEdit />, color: 'orange', label: 'Mixed Media Art', onClick: () => window.open('https://www.instagram.com/designwithjayc/') },
-    { icon: <FiBook />, color: 'green', label: 'Church Camp Designs', onClick: () => openWindow('churchcampdesigns') },
+    { icon: <FiBook />, color: 'green', label: 'Church Camp Designs', onClick: () => openWindow('churchdesigns') },
     // could add links later for compsci projects
   ];
 
