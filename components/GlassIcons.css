@@ -101,3 +101,18 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+@media (max-width: 768px) {
+  .icon-btn__label {
+    font-size: 12px;
+    opacity: 1 !important; /* Always visible */
+    transform: translateX(-50%) translateY(20%); /* Adjust position if needed */
+  }
+
+  /* Disable hover/focus effects for mobile */
+  .icon-btn:focus-visible .icon-btn__label,
+  .icon-btn:hover .icon-btn__label {
+    opacity: 1; /* Ensure no hover/focus overrides */
+    transform: translateX(-50%) translateY(20%);
+  }
+}
