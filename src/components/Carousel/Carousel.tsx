@@ -11,10 +11,11 @@ import {
 
 interface CarouselProps {
     images: string[];
+    setInspectedImage: (image: string | null) => void;
 }
 
 
-export function Carousel({images}: CarouselProps) {
+export function Carousel({images, setInspectedImage}: CarouselProps) {
   return (
     <CustomCarousel className="w-full max-w-xs">
       <CarouselContent>
@@ -23,7 +24,7 @@ export function Carousel({images}: CarouselProps) {
             <div className="p-1">
               {/* <Card> */}
                 {/* <CardContent className="flex aspect-square items-center justify-center p-6"> */}
-                    <img src={image}></img>
+                    <img src={image} onClick={() => setInspectedImage(image)}></img>
                 {/* </CardContent> */}
               {/* </Card> */}
             </div>

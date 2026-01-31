@@ -1,13 +1,11 @@
 import { memo, useEffect, useState } from 'react';
 import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
-import { Designs } from './WindowTypes/Designs';
 import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
-import { PersonalPosters } from './WindowTypes/PersonalPosters/PersonalPosters';
 import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
-function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void }) {
+function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImage }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void, setInspectedImage: (image: string | null) => void }) {
   const [isMobile, setIsMobile] = useState(false);
   const [windowWidth, setWindowWidth] = useState<number>(0);
   const [windowHeight, setWindowHeight] = useState<number>(0);
@@ -45,6 +43,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any
                 isMobile={isMobile}
                 width={isMobile ? windowWidth : 400}
                 height={isMobile ? windowHeight : 550}
+                setInspectedImage={setInspectedImage}
               >
                 <AboutMe />
               </WindowWrapper>
@@ -60,8 +59,9 @@ function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any
                 isMobile={isMobile}
                 width={isMobile ? windowWidth : 500}
                 height={isMobile ? windowHeight : 700}
+                setInspectedImage={setInspectedImage}
               >
-                <GenAIVisuals />
+                <GenAIVisuals setInspectedImage={setInspectedImage}/>
               </WindowWrapper>
             );
           case 'churchdesigns':
@@ -75,8 +75,9 @@ function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any
                 isMobile={isMobile}
                 width={isMobile ? windowWidth : 400}
                 height={isMobile ? windowHeight : 550}
+                setInspectedImage={setInspectedImage}
               >
-                <ChurchDesigns />
+                <ChurchDesigns setInspectedImage={setInspectedImage}/>
               </WindowWrapper>
             );
           default:
