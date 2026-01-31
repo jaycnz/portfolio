@@ -7,7 +7,7 @@ import { PersonalPosters } from './WindowTypes/PersonalPosters/PersonalPosters';
 import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
-function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
+function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void }) {
   const [isMobile, setIsMobile] = useState(false);
   const [windowWidth, setWindowWidth] = useState<number>(0);
   const [windowHeight, setWindowHeight] = useState<number>(0);
@@ -28,51 +28,52 @@ function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any
     };
   }, []);
 
-
   return (
     <>
       {windows.map((window, index) => {
+        const zIndex = windows.length - index;
         const commonProps = {
           key: window,
-          priority: index,
+          priority: zIndex,
           id: window,
           onClose: onClose,
           isMobile: isMobile,
           width: isMobile ? windowWidth : 400,
           height: isMobile ? windowHeight : 550,
         };
+
         switch (window) {
           case 'aboutmedocument':
             return (
               <WindowWrapper title="About me" {...commonProps}>
-                <AboutMe/>
+                <AboutMe />
               </WindowWrapper>
             );
           case 'designs':
             return (
               <WindowWrapper title="Designs" {...commonProps}>
-                <Designs openWindow={openWindow}/>
+                <Designs openWindow={openWindow} />
               </WindowWrapper>
             );
 
-            case 'GenAIPrompting':
-              return (
-                <WindowWrapper title="Generative AI Visual Prompting" {...commonProps}>
-                  <GenAIVisuals/>
-                </WindowWrapper>
-              );
-          case 'PersonalPosters':
+          case 'GenAIPrompting':
             return (
-              <WindowWrapper title="Personal Posters" key={window} priority={index} height={650} width={600} id={window} onClose={onClose}>
-                <PersonalPosters/>
+              <WindowWrapper title="Generative AI Visual Prompting" {...commonProps}>
+                <GenAIVisuals />
               </WindowWrapper>
             );
-            case 'churchdesigns':
-              return (
-                <WindowWrapper title="Church Camp Designs" {...commonProps}>
-                  <ChurchDesigns/>
-                </WindowWrapper>
-              );
+          case 'PersonalPosters':
+            return (
+              <WindowWrapper title="Personal Posters" key={window} priority={zIndex} height={650} width={600} id={window} onClose={onClose}>
+                <PersonalPosters />
+              </WindowWrapper>
+            );
+          case 'churchdesigns':
+            return (
+              <WindowWrapper title="Church Camp Designs" {...commonProps}>
+                <ChurchDesigns />
+              </WindowWrapper>
+            );
           default:
             return null;
         }
