@@ -41,7 +41,7 @@ export function Desktop() {
       
     <div
       style={{
-        height: '600px',
+        height: '100%',
         display: 'flex',
         justifyContent: 'center',   // horizontal
         alignItems: 'center',       // vertical

@@ -6,7 +6,7 @@ import { Main } from '../src/components/Main'
 
 export default function Home() {
   return (
-    <main className="container">
+    <main>
       <Main />
     </main>
   )
