@@ -1,0 +1,30 @@
+import React from 'react';
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry';
+
+// src/components/WindowTypes/AboutMe.tsx
+export function ChurchDesigns() {
+  return (
+    <div className="flex flex-col items-center p-4 space-y-4">
+      {/* Text / "blog post" */}
+      <div className="text-center space-y-2">
+        <h2 className="text-xl font-bold">Graphic Design for Church</h2>
+        <p className="text-sm text-left">
+          I've been designing for my church for about 3 years now! Here is some of the work I've produced for various events.
+        </p>
+        <ResponsiveMasonry columnsCountBreakPoints={{70: 1, 150: 2, 180: 3}}>
+          <Masonry gutter="10px">
+            <img src="/church/Backdrop1.png" alt="Church Design 1" className="rounded shadow-md" />
+            <img src="/church/Backdrop2.png" alt="Church Design 2" className="rounded shadow-md" />
+            <img src="/church/Booklet1.png" alt="Church Design 3" className="rounded shadow-md" />
+            <img src="/church/Booklet2.png" alt="Church Design 4" className="rounded shadow-md" />
+            <img src="/church/Booklet3.png" alt="Church Design 5" className="rounded shadow-md" />
+            <img src="/church/SermonCover1.png" alt="Church Design 6" className="rounded shadow-md" />
+            <img src="/church/SermonCover2.png" alt="Church Design 7" className="rounded shadow-md" />
+            <img src="/church/SermonCover3.png" alt="Church Design 8" className="rounded shadow-md" />
+
+          </Masonry>
+        </ResponsiveMasonry>
+      </div>
+    </div>
+  );
+}

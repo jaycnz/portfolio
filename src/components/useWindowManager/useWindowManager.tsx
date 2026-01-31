@@ -15,6 +15,7 @@ export function useWindowManager() {
   }
 
   function closeWindow(windowName: string) {
+    console.log('closed window:', windowName);
     setWindows(windows.filter(window => window !== windowName));
   }
 
