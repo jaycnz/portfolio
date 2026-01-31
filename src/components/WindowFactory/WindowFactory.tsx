@@ -9,15 +9,18 @@ import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
 
 function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void}) {
   const [isMobile, setIsMobile] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [windowHeight, setWindowHeight] = useState(window.innerHeight);
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const [windowHeight, setWindowHeight] = useState<number>(0);
 
   useEffect(() => {
+
     const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+      setWindowHeight(window.innerHeight);
       setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
     };
 
-    handleResize(); // Set initial state
+    handleResize(); // Set initial state (runs only on client)
     window.addEventListener("resize", handleResize);
 
     return () => {
