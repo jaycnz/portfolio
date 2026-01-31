@@ -3,6 +3,7 @@ import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
 import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
 import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
+import { Photography } from './WindowTypes/Photography/Photography';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
 function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImage }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void, setInspectedImage: (image: string | null) => void }) {
@@ -79,6 +80,22 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
               >
                 <ChurchDesigns setInspectedImage={setInspectedImage}/>
               </WindowWrapper>
+            );
+            case 'photography':
+              return (
+                <WindowWrapper
+                  key={window}
+                  title="Photography"
+                  priority={zIndex}
+                  id={window}
+                  onClose={onClose}
+                  isMobile={isMobile}
+                  width={isMobile ? windowWidth : 400}
+                  height={isMobile ? windowHeight : 550}
+                  setInspectedImage={setInspectedImage}
+                >
+                  <Photography setInspectedImage={setInspectedImage}/>
+                </WindowWrapper>
             );
           default:
             return null;
