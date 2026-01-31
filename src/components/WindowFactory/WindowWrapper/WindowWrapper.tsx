@@ -33,14 +33,14 @@ function WindowWrapperComponent({
       <div
         ref={nodeRef}
         style={{ width, height, zIndex: priority, top: isMobile? '0px' : '20px', left: isMobile ? '0px' : '20px' }}
-        className="stroker border bg-black absolute"
+        className="stroker border bg-black absolute flex flex-col"
         //drag logic for later
       >
-        <div className="window-header flex justify-between items-center border-b pb-1 px-3">
+        <div className="window-header flex justify-between items-center border-b pb-1 px-3 flex-shrink-0">
           <h2 className="font-bold">{title}</h2>
           <button className="no-drag" style={{zIndex: 1000}} onClick={() => onClose(id)}>✕</button>
         </div>
-        <div className="p-2">{children}</div>
+        <div className="p-2 flex-1 overflow-hidden">{children}</div>
       </div>
     </Draggable>
 
