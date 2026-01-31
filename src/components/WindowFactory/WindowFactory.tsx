@@ -32,45 +32,81 @@ function WindowFactoryComponent({ windows, onClose, openWindow }: { windows: any
     <>
       {windows.map((window, index) => {
         const zIndex = windows.length - index;
-        const commonProps = {
-          key: window,
-          priority: zIndex,
-          id: window,
-          onClose: onClose,
-          isMobile: isMobile,
-          width: isMobile ? windowWidth : 400,
-          height: isMobile ? windowHeight : 550,
-        };
 
         switch (window) {
           case 'aboutmedocument':
             return (
-              <WindowWrapper title="About me" {...commonProps}>
+              <WindowWrapper 
+                key={window}
+                title="About me" 
+                priority={zIndex}
+                id={window}
+                onClose={onClose}
+                isMobile={isMobile}
+                width={isMobile ? windowWidth : 400}
+                height={isMobile ? windowHeight : 550}
+              >
                 <AboutMe />
               </WindowWrapper>
             );
           case 'designs':
             return (
-              <WindowWrapper title="Designs" {...commonProps}>
+              <WindowWrapper 
+                key={window}
+                title="Designs" 
+                priority={zIndex}
+                id={window}
+                onClose={onClose}
+                isMobile={isMobile}
+                width={isMobile ? windowWidth : 500}
+                height={isMobile ? windowHeight : 600}
+              >
                 <Designs openWindow={openWindow} />
               </WindowWrapper>
             );
 
           case 'GenAIPrompting':
             return (
-              <WindowWrapper title="Generative AI Visual Prompting" {...commonProps}>
+              <WindowWrapper 
+                key={window}
+                title="Generative AI Visual Prompting" 
+                priority={zIndex}
+                id={window}
+                onClose={onClose}
+                isMobile={isMobile}
+                width={isMobile ? windowWidth : 600}
+                height={isMobile ? windowHeight : 800}
+              >
                 <GenAIVisuals />
               </WindowWrapper>
             );
           case 'PersonalPosters':
             return (
-              <WindowWrapper title="Personal Posters" key={window} priority={zIndex} height={650} width={600} id={window} onClose={onClose}>
+              <WindowWrapper 
+                key={window}
+                title="Personal Posters" 
+                priority={zIndex}
+                id={window}
+                onClose={onClose}
+                isMobile={isMobile}
+                width={isMobile ? windowWidth : 600}
+                height={isMobile ? windowHeight : 650}
+              >
                 <PersonalPosters />
               </WindowWrapper>
             );
           case 'churchdesigns':
             return (
-              <WindowWrapper title="Church Camp Designs" {...commonProps}>
+              <WindowWrapper 
+                key={window}
+                title="Church Camp Designs" 
+                priority={zIndex}
+                id={window}
+                onClose={onClose}
+                isMobile={isMobile}
+                width={isMobile ? windowWidth : 400}
+                height={isMobile ? windowHeight : 550}
+              >
                 <ChurchDesigns />
               </WindowWrapper>
             );

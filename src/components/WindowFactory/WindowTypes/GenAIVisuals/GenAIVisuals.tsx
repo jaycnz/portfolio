@@ -2,7 +2,7 @@ import { Carousel } from "@/src/components/Carousel";
 // src/components/WindowTypes/AboutMe.tsx
 export function GenAIVisuals() {
   return (
-    <div className="TEST flex flex-col p-4 space-y-4 overflow-scroll h-126">
+    <div className="TEST flex flex-col p-4 space-y-4 overflow-y-auto h-full">
         <h1 className="flex font-bold text-xl">14 Day Generative AI Visual Prompting Challenge</h1>
         <p>I spent 14 days writing and developing prompt frameworks to effectively generate visual outputs in a product photoshoot/marketing context. Each day, I created a new visual concept based of my choice, using generative AI tools such as Gemini 2.5 Nano Banana and Flux Kontext to bring my ideas to life. The challenge helped me understand the capabilities and limitations of AI in visual design, as well as improve my prompt engineering skills.
           <br/>            
