@@ -14,6 +14,7 @@ interface WindowWrapperProps {
   width?: number;
   height?: number;
   isMobile?: boolean;
+  setInspectedImage?: (image: string | null) => void;
 }
 
 function WindowWrapperComponent({
@@ -25,6 +26,7 @@ function WindowWrapperComponent({
   width,
   height,
   isMobile,
+  setInspectedImage,
 }: WindowWrapperProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
 
