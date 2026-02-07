@@ -4,6 +4,7 @@ import { AboutMe } from './WindowTypes/AboutMe';
 import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
 import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
 import { Photography } from './WindowTypes/Photography/Photography';
+import { VideoEditing } from './WindowTypes/videoediting/VideoEditing';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
 function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImage }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void, setInspectedImage: (image: string | null) => void }) {
@@ -95,6 +96,22 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                   setInspectedImage={setInspectedImage}
                 >
                   <Photography setInspectedImage={setInspectedImage}/>
+                </WindowWrapper>
+            );
+            case 'videoediting':
+              return (
+                <WindowWrapper
+                  key={window}
+                  title="Video Editing"
+                  priority={zIndex}
+                  id={window}
+                  onClose={onClose}
+                  isMobile={isMobile}
+                  width={isMobile ? windowWidth : 400}
+                  height={isMobile ? windowHeight : 550}
+                  setInspectedImage={setInspectedImage}
+                >
+                  <VideoEditing setInspectedImage={setInspectedImage}/>
                 </WindowWrapper>
             );
           default:

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useWindowManager } from '../useWindowManager/useWindowManager';
 import { WindowFactory } from '../WindowFactory/WindowFactory';
-import { FiFileText, FiBook, FiEdit, FiCamera, FiImage, FiDribbble } from 'react-icons/fi'; // React Icons
+import { FiFileText, FiBook, FiEdit, FiCamera, FiImage, FiDribbble, FiFilm, FiGithub } from 'react-icons/fi'; // React Icons
 import GlassIcons from '@/components/GlassIcons'; // Adjusted relative path
 import { ImageDialog } from '../ImageDialog/ImageDialog';
 
@@ -22,6 +22,8 @@ export function Desktop() {
     { icon: <FiImage />, color: 'purple', label: 'Generative AI Prompting', onClick: () => openWindow('GenAIPrompting') },
     { icon: <FiCamera />, color: 'red', label: 'Photography', onClick: () => openWindow('photography') },
     { icon: <FiBook />, color: 'green', label: 'Church Camp Designs', onClick: () => openWindow('churchdesigns') },
+    { icon: <FiFilm />, color: 'indigo', label: 'Video Editing', onClick: () => openWindow('videoediting') },
+    { icon: <FiGithub />, color: 'orange', label: 'Projects', onClick: () => window.open('https://github.com/jaycnz') },
     { icon: <FiDribbble />, color: 'indigo', label: 'Sports Team Media', onClick: () => window.open('https://www.instagram.com/assketballers/') },
     { icon: <FiEdit />, color: 'orange', label: 'Mixed Media Art', onClick: () => window.open('https://www.instagram.com/designwithjayc/') },
     // could add links later for compsci projects
