@@ -44,7 +44,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                 onClose={onClose}
                 isMobile={isMobile}
                 width={isMobile ? windowWidth : 400}
-                height={isMobile ? windowHeight : 550}
+                height={isMobile ? windowHeight : 650 }
                 setInspectedImage={setInspectedImage}
               >
                 <AboutMe />
