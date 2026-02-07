@@ -3,7 +3,7 @@ export function AboutMe() {
     return (
       <div className="flex flex-col items-center p-4 space-y-4">
         <img
-          src="/images/profile.jpg"
+          src="/images/profile2.jpg"
           alt="Profile"
           className="w-28 h-28 rounded-full object-cover shadow-md"
         />

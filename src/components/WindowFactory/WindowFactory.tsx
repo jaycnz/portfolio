@@ -23,6 +23,10 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
     handleResize(); // Set initial state (runs only on client)
     window.addEventListener("resize", handleResize);
 
+    if (!isMobile) {
+      openWindow('aboutmedocument'); 
+    }
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
