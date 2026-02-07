@@ -18,7 +18,7 @@ export function VideoEditing({ setInspectedImage }: VideoEditingProps) {
 
         <br />
         <br />
-        
+
         <div className="w-full flex justify-center">
           <iframe
             className="w-full max-w-3xl aspect-video rounded-lg"
@@ -26,6 +26,15 @@ export function VideoEditing({ setInspectedImage }: VideoEditingProps) {
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+        <br />
+        <div className="w-full flex justify-center">
+          <iframe
+            className="w-full max-w-sm aspect-[9/16] rounded-lg"
+            src="https://www.tiktok.com/embed/v2/7561240156532018450"
+            scrolling="no"
             allowFullScreen
           />
         </div>
@@ -41,14 +50,14 @@ export function VideoEditing({ setInspectedImage }: VideoEditingProps) {
         <br />
         <div className="w-full flex justify-center">
           <iframe
-            className="w-full max-w-sm aspect-[9/16] rounded-lg"
-            src="https://www.tiktok.com/embed/v2/7561240156532018450"
-            scrolling="no"
+            className="w-full max-w-3xl aspect-video rounded-lg"
+            src="https://www.youtube.com/embed/MhNvv3z2KkM"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
         </div>
-
-
       </p>
 
       <div className="w-full flex justify-center">
