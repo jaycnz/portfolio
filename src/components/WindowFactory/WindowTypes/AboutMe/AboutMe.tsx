@@ -5,7 +5,7 @@ export function AboutMe() {
         <img
           src="/images/profile.jpg"
           alt="Profile"
-          className="w-32 h-32 rounded-full object-cover shadow-md"
+          className="w-28 h-28 rounded-full object-cover shadow-md"
         />
   
         {/* Text / "blog post" */}
@@ -17,6 +17,11 @@ export function AboutMe() {
             <br/>
             <br/>
             In my free time, I enjoy playing basketball, music, video games, and creating posters/digital art. You can find some of my work in the other folders on this website.
+            <br/>
+            <br/>
+            <span className="font-semibold">Tools I use:</span> 
+            <br/>
+            Adobe Photoshop, Lightroom, Premiere Pro, DaVinci Resolve, Figma, Google AI Studio, Git, among others.
             <br/>
             <br/>
             jaycnz1023@gmail.com
