@@ -6,6 +6,20 @@ interface ChurchDesignsProps {
   setInspectedImage: (image: string | null) => void;
 }
 
+const backdropImages = [
+  '/church/Backdrop1.png',
+  '/church/Backdrop2.png',
+];
+
+const masonryImages = [
+  '/church/Booklet1.png',
+  '/church/Booklet2.png',
+  '/church/Booklet3.png',
+  '/church/SermonCover1.png',
+  '/church/SermonCover2.png',
+  '/church/SermonCover3.png',
+];
+
 export function ChurchDesigns({ setInspectedImage }: ChurchDesignsProps) {
   return (
     <div className="flex flex-col items-center p-4 space-y-4">
@@ -16,19 +30,29 @@ export function ChurchDesigns({ setInspectedImage }: ChurchDesignsProps) {
           I've been designing for my church for about 3 years now! Here is some of the work I've produced for various events.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <img src="/church/Backdrop1.png" className="rounded shadow-md" onClick={() => setInspectedImage('/church/Backdrop1.png')} />
-          <img src="/church/Backdrop2.png" className="rounded shadow-md" onClick={() => setInspectedImage('/church/Backdrop2.png')} />
+          {backdropImages.map((src, idx) => (
+            <img
+              key={src}
+              src={src}
+              alt={`Church Backdrop ${idx + 1}`}
+              className="rounded shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => setInspectedImage(src)}
+              loading="lazy"
+            />
+          ))}
         </div>
         <ResponsiveMasonry columnsCountBreakPoints={{70: 1, 150: 2, 180: 3}}>
           <Masonry gutter="10px">
-
-            <img src="/church/Booklet1.png" alt="Church Design 3" className="rounded shadow-md" onClick={() => setInspectedImage('/church/Booklet1.png')} />
-            <img src="/church/Booklet2.png" alt="Church Design 4" className="rounded shadow-md" onClick={() => setInspectedImage('/church/Booklet2.png')} />
-            <img src="/church/Booklet3.png" alt="Church Design 5" className="rounded shadow-md" onClick={() => setInspectedImage('/church/Booklet3.png')} />
-            <img src="/church/SermonCover1.png" alt="Church Design 6" className="rounded shadow-md" onClick={() => setInspectedImage('/church/SermonCover1.png')} />
-            <img src="/church/SermonCover2.png" alt="Church Design 7" className="rounded shadow-md" onClick={() => setInspectedImage('/church/SermonCover2.png')} />
-            <img src="/church/SermonCover3.png" alt="Church Design 8" className="rounded shadow-md" onClick={() => setInspectedImage('/church/SermonCover3.png')} />
-
+            {masonryImages.map((src, idx) => (
+              <img
+                key={src}
+                src={src}
+                alt={`Church Design ${idx + 3}`}
+                className="rounded shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+                onClick={() => setInspectedImage(src)}
+                loading="lazy"
+              />
+            ))}
           </Masonry>
         </ResponsiveMasonry>
       </div>
