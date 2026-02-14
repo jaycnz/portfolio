@@ -24,7 +24,9 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
     window.addEventListener("resize", handleResize);
 
     if (!isMobile) {
-      openWindow('aboutmedocument'); 
+      openWindow('aboutmedocument')
+      console.log(window.innerWidth)
+      console.log(isMobile); 
     }
 
     return () => {
@@ -46,6 +48,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                 priority={zIndex}
                 id={window}
                 onClose={onClose}
+                onFocus={openWindow}
                 isMobile={isMobile}
                 width={isMobile ? windowWidth : 400}
                 height={isMobile ? windowHeight : 650 }
@@ -62,6 +65,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                 priority={zIndex}
                 id={window}
                 onClose={onClose}
+                onFocus={openWindow}
                 isMobile={isMobile}
                 width={isMobile ? windowWidth : 500}
                 height={isMobile ? windowHeight : 700}
@@ -78,6 +82,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                 priority={zIndex}
                 id={window}
                 onClose={onClose}
+                onFocus={openWindow}
                 isMobile={isMobile}
                 width={isMobile ? windowWidth : 400}
                 height={isMobile ? windowHeight : 550}
@@ -94,6 +99,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                   priority={zIndex}
                   id={window}
                   onClose={onClose}
+                  onFocus={openWindow}
                   isMobile={isMobile}
                   width={isMobile ? windowWidth : 400}
                   height={isMobile ? windowHeight : 550}
@@ -110,6 +116,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                   priority={zIndex}
                   id={window}
                   onClose={onClose}
+                  onFocus={openWindow}
                   isMobile={isMobile}
                   width={isMobile ? windowWidth : 400}
                   height={isMobile ? windowHeight : 550}
