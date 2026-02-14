@@ -20,14 +20,20 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
       setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
     };
 
-    handleResize(); // Set initial state (runs only on client)
-    window.addEventListener("resize", handleResize);
+    // Set initial state synchronously so we can decide immediately
+    // whether to open the default window without relying on state updates.
+    const initialWidth = window.innerWidth;
+    const initialHeight = window.innerHeight;
+    const initialIsMobile = initialWidth <= 768;
+    setWindowWidth(initialWidth);
+    setWindowHeight(initialHeight);
+    setIsMobile(initialIsMobile);
 
-    if (!isMobile) {
-      openWindow('aboutmedocument')
-      console.log(window.innerWidth)
-      console.log(isMobile); 
+    if (!initialIsMobile) {
+      openWindow('aboutmedocument');
     }
+
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
