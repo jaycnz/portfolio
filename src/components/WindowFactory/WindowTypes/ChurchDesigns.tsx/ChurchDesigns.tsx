@@ -22,7 +22,7 @@ const masonryImages = [
 
 export function ChurchDesigns({ setInspectedImage }: ChurchDesignsProps) {
   return (
-    <div className="flex flex-col items-center p-4 space-y-4">
+    <div className="flex flex-col items-center p-4 space-y-4 overflow-y-auto h-full">
       {/* Text / "blog post" */}
       <div className="text-center space-y-2">
         <h2 className="text-xl font-bold">Graphic Design for Church</h2>
