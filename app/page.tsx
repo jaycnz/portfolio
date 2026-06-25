@@ -1,4 +1,6 @@
-import { Main } from '../src/components/Main'
+import { OS } from '../src/views/OS'
+import { Main } from '../src/views/Main'
+import { HashRouter as Router, Routes, Route } from 'react-router-dom'
 // import './page.module.css'
 
 // This is the entry point for the app. We will use <Main /> as our parent component,
@@ -6,8 +8,13 @@ import { Main } from '../src/components/Main'
 
 export default function Home() {
   return (
-    <main>
-      <Main />
-    </main>
+    <Router>
+      <main>
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/OS" element={<OS />} />
+        </Routes>
+      </main>
+    </Router>
   )
 }

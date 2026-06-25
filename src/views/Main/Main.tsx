@@ -1,10 +1,9 @@
-import { Desktop } from '../Desktop'
 
 
 export function Main() {
   return (
     <div>
-        <Desktop/>
+        <h1>Main Page</h1>
     </div>
   )
 }
