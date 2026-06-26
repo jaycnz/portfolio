@@ -1,3 +1,5 @@
+'use client'
+
 import { OS } from '../src/views/OS'
 import { Main } from '../src/views/Main'
 import { HashRouter as Router, Routes, Route } from 'react-router-dom'
