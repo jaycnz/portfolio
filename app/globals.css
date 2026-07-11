@@ -130,6 +130,13 @@ a {
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+.page-container {
+  max-width: 1200px; /* or 1000px, 800px, etc. */
+  margin: 0 auto;    /* centers the container */
+  padding: 0 24px;   /* keeps content away from screen edges on mobile */
+}
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
