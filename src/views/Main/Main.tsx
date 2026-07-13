@@ -10,7 +10,7 @@ export function Main() {
         <Lanyard
           position={[0, 0, 24]}
           gravity={[0, -40, 0]}
-          frontImage="/lanyard/my-front.png"
+          frontImage="/lanyard/my-front2.png"
           backImage="/lanyard/my-back.png"
           lanyardImage="/lanyard/band4.png"
           imageFit="contain"

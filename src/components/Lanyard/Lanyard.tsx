@@ -17,7 +17,6 @@ import { MeshLineGeometry, MeshLineMaterial } from 'meshline';
 import * as THREE from 'three';
 
 // replace with your own imports, see the usage snippet for details
-import cardGLB from './card.glb';
 import lanyard from './lanyard.png';
 
 extend({ MeshLineGeometry, MeshLineMaterial });
@@ -179,8 +178,7 @@ function Band({
     return body.lerped;
   };
 
-  const { nodes, materials } = useGLTF(cardGLB) as any;
-  const texture = useTexture(
+  const { nodes, materials } = useGLTF('/models/card.glb') as any;  const texture = useTexture(
     lanyardImage || (typeof lanyard === 'string' ? lanyard : lanyard.src)
   ) as THREE.Texture;
   // useTexture must be called unconditionally; use a blank pixel when an image
