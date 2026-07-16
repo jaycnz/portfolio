@@ -3,7 +3,7 @@ import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
 import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
 import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
-import { Photography } from './WindowTypes/Photography/Photography';
+import { Resume } from './WindowTypes/Resume/Resume';
 import { VideoEditing } from './WindowTypes/videoediting/VideoEditing';
 // import { FileWindow } from './windowContents/FileWindow'; DO LATER
 
@@ -31,6 +31,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
 
     if (!initialIsMobile) {
       openWindow('aboutmedocument');
+      openWindow('resume');
     }
 
     window.addEventListener("resize", handleResize);
@@ -97,21 +98,21 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                 <ChurchDesigns setInspectedImage={setInspectedImage}/>
               </WindowWrapper>
             );
-            case 'photography':
+            case 'resume':
               return (
                 <WindowWrapper
                   key={window}
-                  title="Photography"
+                  title="Resume"
                   priority={zIndex}
                   id={window}
                   onClose={onClose}
                   onFocus={openWindow}
                   isMobile={isMobile}
                   width={isMobile ? windowWidth : 400}
-                  height={isMobile ? windowHeight : 550}
+                  height={isMobile ? windowHeight : 620}
                   setInspectedImage={setInspectedImage}
                 >
-                  <Photography setInspectedImage={setInspectedImage}/>
+                  <Resume setInspectedImage={setInspectedImage}/>
                 </WindowWrapper>
             );
             case 'videoediting':
