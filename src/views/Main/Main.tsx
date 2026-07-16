@@ -8,12 +8,12 @@ export function Main() {
       {/* Doesn't affect layout */}
       <div className="fixed inset-0 z-50">
         <Lanyard
-          position={[0, 0, 24]}
+          position={[0, 4, 18]}
           gravity={[0, -40, 0]}
-          frontImage="/lanyard/my-front2.png"
-          backImage="/lanyard/my-back.png"
+          frontImage="/lanyard/lanyard-front.png"
+          backImage="/lanyard/lanyard-front2.png"
           lanyardImage="/lanyard/band4.png"
-          imageFit="contain"
+          imageFit="cover"
           lanyardWidth={0.8}
         />
       </div>
