@@ -5,6 +5,11 @@ import dynamic from 'next/dynamic';
 
 const Draggable = dynamic(() => import('react-draggable'), { ssr: false });
 
+interface WindowSpawnPosition {
+  top?: string | number;
+  left?: string | number;
+}
+
 interface WindowWrapperProps {
   id: string;
   title: string;
@@ -16,6 +21,7 @@ interface WindowWrapperProps {
   height?: number;
   isMobile?: boolean;
   setInspectedImage?: (image: string | null) => void;
+  spawnPosition?: WindowSpawnPosition;
 }
 
 function WindowWrapperComponent({
@@ -29,15 +35,20 @@ function WindowWrapperComponent({
   height,
   isMobile,
   setInspectedImage,
+  spawnPosition,
 }: WindowWrapperProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
+  const defaultTop = isMobile ? '0px' : '20px';
+  const defaultLeft = isMobile ? '0px' : '20px';
+  const initialTop = spawnPosition?.top ?? defaultTop;
+  const initialLeft = spawnPosition?.left ?? defaultLeft;
 
   return (
     <Draggable nodeRef={nodeRef} handle=".window-header" bounds="body" cancel=".no-drag"> 
       <div
         ref={nodeRef}
         onPointerDown={() => onFocus?.(id)}
-        style={{ width, height, zIndex: priority, top: isMobile? '0px' : '20px', left: isMobile ? '0px' : '20px' }}
+        style={{ width, height, zIndex: priority, top: initialTop, left: initialLeft }}
         className="stroker border bg-black absolute flex flex-col"
       >
         <div className="window-header flex justify-between items-center border-b pb-1 px-3 flex-shrink-0">

@@ -13,6 +13,8 @@ export function Resume({ setInspectedImage }: ResumeProps) {
       <div className="w-full max-w-4xl">
         <Link
           href="/resume"
+          target="_blank"
+          rel="noopener noreferrer"
           className="block rounded-xl border border-white/20 bg-white/10 p-2 shadow-lg transition hover:scale-[1.01]"
         >
           <div className="relative overflow-hidden rounded-lg border border-black/10 bg-white select-none">

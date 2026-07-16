@@ -111,6 +111,7 @@ function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImag
                   width={isMobile ? windowWidth : 400}
                   height={isMobile ? windowHeight : 620}
                   setInspectedImage={setInspectedImage}
+                  spawnPosition={{ top: '167px', left: `${windowWidth - 500}px` }}
                 >
                   <Resume setInspectedImage={setInspectedImage}/>
                 </WindowWrapper>
