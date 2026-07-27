@@ -1,5 +1,3 @@
-import { Carousel } from "@/src/components/Carousel";
-
 interface VideoEditingProps {
   setInspectedImage: (image: string | null) => void;
 }

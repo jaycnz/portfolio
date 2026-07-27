@@ -1,6 +1,5 @@
-import * as React from "react"
+'use client'
 
-import { Card, CardContent } from '@/components/ui/card';
 import {
   Carousel as CustomCarousel,
   CarouselContent,
