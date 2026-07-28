@@ -2,44 +2,43 @@
 
 import { useState } from "react";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import { ImageDialog } from "../ImageDialog/ImageDialog";
+
+interface ImageItem {
+  thumbnails: string;
+  full: string;
+}
 
 interface Props {
-  images: string[];
+  images: ImageItem[];
 }
 
 export function MasonryWrapper({ images }: Props) {
   const [inspectedImage, setInspectedImage] = useState<string | null>(null);
 
   return (
-    <>
+    <div className="px-2">
       <ResponsiveMasonry columnsCountBreakPoints={{70: 1, 150: 2, 180: 3}}>
         <Masonry gutter="10px">
-          {images.map((src, idx) => (
+          {images.map((image, idx) => (
             <img
-              key={src}
-              src={src}
+              src={image.thumbnails}
+              key={image.full}
               alt={`Photography ${idx + 1}`}
-              className="rounded shadow-md cursor-pointer hover:opacity-80 transition-opacity"
-              onClick={() => setInspectedImage(src)}
+              className="w-full rounded shadow-md cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={() => setInspectedImage(image.full)}
               loading="lazy"
+              decoding="async"
             />
           ))}
         </Masonry>
       </ResponsiveMasonry>
 
-      {inspectedImage && (
-      <div
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
-        onClick={() => setInspectedImage(null)}
-      >
-        <img
-          src={inspectedImage}
-          className="max-h-[90vh] max-w-[90vw] object-contain"
-          onClick={(e) => e.stopPropagation()}
-        />
-      </div>
-    )}
+      <ImageDialog
+        image={inspectedImage}
+        onClose={() => setInspectedImage(null)}
+      />
       
-    </>
+    </div>
   );
 }

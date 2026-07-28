@@ -85,10 +85,9 @@ export default function TiltedCard({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      {showMobileWarning && (
-        <div className="tilted-card-mobile-alert">This effect is not optimized for mobile. Check on desktop.</div>
-      )}
-
+      {/* {showMobileWarning && (
+        <div className="tilted-card-mobile-alert">Theres a REALLY AWESOME hover effect I can't get onto mobile devices. Check on desktop :)!</div>
+      )} */}
       <motion.div
         className="tilted-card-inner"
         style={{

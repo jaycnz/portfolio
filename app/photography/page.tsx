@@ -2,13 +2,18 @@ import fs from 'fs';
 import path from 'path';
 import { MasonryWrapper } from '@/src/components/MasonryWrapper/MasonryWrapper';
 
-export default function ResumePage() {
-  const dir = path.join(process.cwd(), 'public/photography');
+export default function PhotographyPage() {
+  const thumbnailDir = path.join(
+    process.cwd(), 'public/photography/thumbnails'
+  );
 
   const images = fs
-    .readdirSync(dir)
-    .filter(file => /\.(jpg|jpeg)$/i.test(file))
-    .map(file => `/photography/${file}`);
+    .readdirSync(thumbnailDir)
+    .filter((file) => /\.(jpg|jpeg)$/i.test(file))
+    .map((file) => ({
+      thumbnails: `/photography/thumbnails/${file}`,
+      full: `/photography/full/${file}`,
+    }));
 
   return (
     <div className="min-h-screen w-full bg-black">
