@@ -159,9 +159,14 @@ body {
 
 /* ---- Redesign: fonts ---- */
 @theme inline {
-  --font-display: var(--font-pixel);
+  /* This registers font-display and font-inter into the Tailwind engine properly */
+  --font-display: var(--font-jersey);
+  --font-sans: var(--font-inter);
 }
 
-body {
-  font-family: var(--font-inter), system-ui, sans-serif;
+/* Remove the aggressive body rule and use Tailwind's base layer instead */
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
 }

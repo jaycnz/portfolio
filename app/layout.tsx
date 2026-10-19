@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Pixelify_Sans } from "next/font/google";
+import { Inter, Jersey_10  } from "next/font/google";
 import "./globals.css";
 
 // Body text
@@ -9,8 +9,9 @@ const inter = Inter({
 });
 
 // Pixel display font (nav, headings, buttons).
-const pixel = Pixelify_Sans({
-  variable: "--font-pixel",
+const jersey = Jersey_10({
+  weight: "400",
+  variable: "--font-jersey",
   subsets: ["latin"],
 });
 
@@ -30,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${pixel.variable} antialiased`}>
+      <body className={`${inter.variable} ${jersey.variable} antialiased`}>
         {children}
       </body>
     </html>

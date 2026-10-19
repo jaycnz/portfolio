@@ -48,13 +48,22 @@ export function WorkSection() {
                 onClick={() => console.log('open window:', project.windowId)}
                 className="group flex w-full flex-col items-center gap-2 text-center"
               >
-                <Image
-                  src="/images/folder.png"
-                  alt=""
-                  width={96}
-                  height={96}
-                  className="size-20 transition group-hover:-translate-y-1 sm:size-24"
-                />
+                <span className="relative size-20 transition group-hover:-translate-y-1 sm:size-24">
+                  <Image
+                    src="/images/folder.png"
+                    alt=""
+                    width={96}
+                    height={96}
+                    className="absolute inset-0 size-full object-contain transition-opacity group-hover:opacity-0"
+                  />
+                  <Image
+                    src="/images/folder_hover.png"
+                    alt=""
+                    width={96}
+                    height={96}
+                    className="absolute inset-0 size-full object-contain opacity-0 transition-opacity group-hover:opacity-100"
+                  />
+                </span>
                 <span className="font-display text-sm leading-snug">{project.title}</span>
               </button>
             </li>
