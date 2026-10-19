@@ -5,9 +5,11 @@ import Image from 'next/image'
 import { Section } from '../Section'
 import { GlassPanel } from '../GlassPanel'
 import { FILTERS, projects, type Filter } from '@/src/data/projects'
+import { useWindows } from '../WindowProvider'
 
 export function WorkSection() {
   const [active, setActive] = useState<Filter>('All')
+  const { openWindow } = useWindows()
 
   const visible = projects.filter(
     (p) => active === 'All' || p.categories.includes(active),
@@ -45,7 +47,7 @@ export function WorkSection() {
             <li key={project.id}>
               <button
                 type="button"
-                onClick={() => console.log('open window:', project.windowId)}
+                onClick={() => openWindow(project.windowId)}
                 className="group flex w-full flex-col items-center gap-2 text-center"
               >
                 <span className="relative size-20 transition group-hover:-translate-y-1 sm:size-24">
@@ -64,7 +66,7 @@ export function WorkSection() {
                     className="absolute inset-0 size-full object-contain opacity-0 transition-opacity group-hover:opacity-100"
                   />
                 </span>
-                <span className="font-display text-sm leading-snug">{project.title}</span>
+                <span className="font-display text-lg leading-snug">{project.title}</span>
               </button>
             </li>
           ))}
