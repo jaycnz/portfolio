@@ -138,3 +138,30 @@ a {
     @apply bg-background text-foreground;
   }
 }
+
+
+/* ---- Redesign: dark page with dotted background ---- */
+:root {
+  --bg-top: #3b4345;
+  --bg-bottom: #25292b;
+  --dot: rgba(255, 255, 255, 0.07);
+}
+
+body {
+  color: #f5f5f5;
+  background-color: var(--bg-bottom);
+  background-image:
+    radial-gradient(var(--dot) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
+  background-size: 28px 28px, 100% 100%;
+  background-attachment: fixed;
+}
+
+/* ---- Redesign: fonts ---- */
+@theme inline {
+  --font-display: var(--font-pixel);
+}
+
+body {
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
