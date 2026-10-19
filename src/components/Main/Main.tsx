@@ -3,6 +3,7 @@ import { HomeHero } from '../HomeHero'
 import { WorkSection } from '../WorkSection'
 import { WindowProvider } from '../WindowProvider'
 import { AboutSection } from '../AboutSection'
+import { Footer } from '../Footer'
 
 export function Main() {
   return (
@@ -10,8 +11,9 @@ export function Main() {
       <div>
         <HomeHero />
         <WorkSection />
-        <AboutSection />
-        <Desktop />
+        {/* WIP: COMPLETE ABOUT SECTION LATER */}
+        {/* <AboutSection />  */}
+        <Footer />
       </div>
     </WindowProvider>
   )
