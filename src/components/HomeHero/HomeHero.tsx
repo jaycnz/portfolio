@@ -19,14 +19,12 @@ export function HomeHero() {
           <div className="mt-6 flex flex-wrap gap-3">
             <a
               href="#work"
-              className="rounded-lg bg-white px-5 py-3 font-display text-sm text-black transition hover:bg-white/85"
-            >
+              className="rounded-lg bg-white px-7 py-3.5 font-display text-lg text-black transition hover:bg-white/85 md:px-9 md:py-4 md:text-xl"            >
               View Projects
             </a>
             <a
               href="#contact"
-              className="rounded-lg border border-white/50 bg-[#3b2f40] px-5 py-3 font-display text-sm text-white transition hover:bg-[#4a3b50]"
-            >
+              className="rounded-lg border border-white/50 bg-[#3b2f40] px-7 py-3.5 font-display text-lg text-white transition hover:bg-[#4a3b50] md:px-9 md:py-4 md:text-xl"            >
               Contact Me
             </a>
           </div>

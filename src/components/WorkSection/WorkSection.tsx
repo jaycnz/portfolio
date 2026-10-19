@@ -29,7 +29,7 @@ export function WorkSection() {
                 aria-pressed={isActive}
                 onClick={() => setActive(filter)}
                 className={
-                  'rounded-full border px-4 py-1 font-display text-xs transition ' +
+                  'rounded-full border px-5 py-1.5 font-display text-base transition md:px-8 md:py-2 md:text-xl ' +
                   (isActive
                     ? 'border-white bg-white text-black'
                     : 'border-white/50 bg-[#3b2f40] text-white hover:bg-[#4a3b50]')
