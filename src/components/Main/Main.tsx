@@ -1,10 +1,16 @@
 import { Desktop } from '../Desktop'
-
+import { HomeHero } from '../HomeHero'
+import { WorkSection } from '../WorkSection'
+import { WindowProvider } from '../WindowProvider'
 
 export function Main() {
   return (
-    <div>
-        <Desktop/>
-    </div>
+    <WindowProvider>
+      <div>
+        <HomeHero />
+        <WorkSection />
+        <Desktop />
+      </div>
+    </WindowProvider>
   )
 }
