@@ -170,3 +170,29 @@ body {
     font-family: var(--font-inter), system-ui, sans-serif;
   }
 }
+
+/* ---- Redesign: smooth scrolling for the nav (off for people who prefer less motion) ---- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---- Redesign: nav sizing (smaller on phones so the items fit across) ---- */
+.gooey-nav.site-nav {
+  --gn-font: 17px;
+  --gn-x: 13px;
+  --gn-y: 8px;
+  --gn-gap: 2px;
+}
+@media (min-width: 768px) {
+  .gooey-nav.site-nav {
+    --gn-font: 24px;
+    --gn-x: 26px;
+    --gn-y: 9px;
+    --gn-gap: 6px;
+  }
+}

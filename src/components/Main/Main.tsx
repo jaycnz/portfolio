@@ -4,6 +4,7 @@ import { WorkSection } from '../WorkSection'
 import { WindowProvider } from '../WindowProvider'
 import { AboutSection } from '../AboutSection'
 import { Footer } from '../Footer'
+import { SiteNav } from '../SiteNav/SiteNav'
 
 export function Main() {
   return (
@@ -14,6 +15,7 @@ export function Main() {
         {/* WIP: COMPLETE ABOUT SECTION LATER */}
         {/* <AboutSection />  */}
         <Footer />
+        <SiteNav />
       </div>
     </WindowProvider>
   )

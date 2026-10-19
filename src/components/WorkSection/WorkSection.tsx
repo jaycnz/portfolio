@@ -17,6 +17,9 @@ export function WorkSection() {
 
   return (
     <Section id="work" className="justify-center">
+        <h2 className="mb-6 text-center font-display text-3xl sm:text-4xl md:text-5xl">
+          Work/Projects
+        </h2>
       <GlassPanel className="mx-auto w-full max-w-6xl p-5 sm:p-8">
         {/* Filter pills */}
         <div role="group" aria-label="Filter projects" className="flex flex-wrap justify-center gap-2">
