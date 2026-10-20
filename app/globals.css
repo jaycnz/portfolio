@@ -91,7 +91,7 @@ body {
   font-family: var(--font-geist-sans);
 }
 
-a {
+.Link {
   color: #4f7aee; /* Tailwind's blue-600 */
   text-decoration: underline;
 }
@@ -136,5 +136,63 @@ a {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+
+/* ---- Redesign: dark page with dotted background ---- */
+:root {
+  --bg-top: #3b4345;
+  --bg-bottom: #25292b;
+  --dot: rgba(255, 255, 255, 0.07);
+}
+
+body {
+  color: #f5f5f5;
+  background-color: var(--bg-bottom);
+  background-image:
+    radial-gradient(var(--dot) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, var(--bg-top), var(--bg-bottom));
+  background-size: 28px 28px, 100% 100%;
+  background-attachment: fixed;
+}
+
+/* ---- Redesign: fonts ---- */
+@theme inline {
+  /* This registers font-display and font-inter into the Tailwind engine properly */
+  --font-display: var(--font-jersey);
+  --font-sans: var(--font-inter);
+}
+
+/* Remove the aggressive body rule and use Tailwind's base layer instead */
+@layer base {
+  body {
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+}
+
+/* ---- Redesign: smooth scrolling for the nav (off for people who prefer less motion) ---- */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ---- Redesign: nav sizing (smaller on phones so the items fit across) ---- */
+.gooey-nav.site-nav {
+  --gn-font: 17px;
+  --gn-x: 13px;
+  --gn-y: 8px;
+  --gn-gap: 2px;
+}
+@media (min-width: 768px) {
+  .gooey-nav.site-nav {
+    --gn-font: 24px;
+    --gn-x: 26px;
+    --gn-y: 9px;
+    --gn-gap: 6px;
   }
 }

@@ -29,7 +29,7 @@ export function Resume({ setInspectedImage }: ResumeProps) {
             />
           </div>
         </Link>
-        <p className="mt-2 text-center text-sm text-white/70">Open the full-screen resume page</p>
+        <p className="mt-2 text-center text-sm text-black/60">Open the full-screen resume page</p>
       </div>
     </div>
   );

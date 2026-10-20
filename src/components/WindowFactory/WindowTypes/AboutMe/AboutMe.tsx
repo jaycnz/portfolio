@@ -10,7 +10,7 @@ export function AboutMe() {
   
         {/* Text / "blog post" */}
         <div className="text-center space-y-2">
-          <h2 className="text-xl font-bold">Hi, I'm Jay</h2>
+          <h2 className="text-xl font-display">Hi, I'm Jay</h2>
           <p className="text-sm text-left">
             I’m a design and computer science student, interested in sports design, game design, and game development with a focus on storytelling and visual experiences. I
             love creating visuals and experiences that connect people and foster a sense of belonging. My goal is to design experiences that bring people together, to make them feel a part of something bigger.

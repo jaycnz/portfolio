@@ -1,137 +1,75 @@
 import { memo, useEffect, useState } from 'react';
 import { WindowWrapper } from './WindowWrapper';
 import { AboutMe } from './WindowTypes/AboutMe';
-import { GenAIVisuals } from './WindowTypes/GenAIVisuals/GenAIVisuals';
-import { ChurchDesigns } from './WindowTypes/ChurchDesigns.tsx/ChurchDesigns';
 import { Resume } from './WindowTypes/Resume/Resume';
-import { VideoEditing } from './WindowTypes/videoediting/VideoEditing';
-// import { FileWindow } from './windowContents/FileWindow'; DO LATER
+import { ProjectWindow } from './WindowTypes/ProjectWindow/ProjectWindow';
+import { windowContent } from '@/src/data/windowContent';
 
-function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImage }: { windows: any[], onClose: (id: string) => void, openWindow: (windowName: string) => void, setInspectedImage: (image: string | null) => void }) {
+interface WindowFactoryProps {
+  windows: string[];
+  onClose: (id: string) => void;
+  openWindow: (windowName: string) => void;
+  setInspectedImage: (image: string | null) => void;
+}
+
+function WindowFactoryComponent({ windows, onClose, openWindow, setInspectedImage }: WindowFactoryProps) {
   const [isMobile, setIsMobile] = useState(false);
   const [windowWidth, setWindowWidth] = useState<number>(0);
   const [windowHeight, setWindowHeight] = useState<number>(0);
 
   useEffect(() => {
-
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
       setWindowHeight(window.innerHeight);
-      setIsMobile(window.innerWidth <= 768); // Adjust breakpoint as needed
+      setIsMobile(window.innerWidth <= 768);
     };
-
-    // Set initial state synchronously so we can decide immediately
-    // whether to open the default window without relying on state updates.
-    const initialWidth = window.innerWidth;
-    const initialHeight = window.innerHeight;
-    const initialIsMobile = initialWidth <= 768;
-    setWindowWidth(initialWidth);
-    setWindowHeight(initialHeight);
-    setIsMobile(initialIsMobile);
-
-    if (!initialIsMobile) {
-      openWindow('aboutmedocument');
-      openWindow('resume');
-    }
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   return (
     <>
-      {windows.map((window, index) => {
-        const zIndex = windows.length - index;
+      {windows.map((id, index) => {
+        const priority = windows.length - index;
+        const w = (desktop: number) => (isMobile ? windowWidth : desktop);
+        const h = (desktop: number) => (isMobile ? windowHeight : desktop);
 
-        switch (window) {
+        // Every project window comes from src/data/windowContent.ts
+        const project = windowContent[id];
+        if (project) {
+          return (
+            <WindowWrapper
+              key={id}
+              id={id}
+              title={project.title}
+              priority={priority}
+              onClose={onClose}
+              onFocus={openWindow}
+              isMobile={isMobile}
+              width={w(820)}
+              height={h(520)}
+              setInspectedImage={setInspectedImage}
+            >
+              <ProjectWindow content={project} setInspectedImage={setInspectedImage} />
+            </WindowWrapper>
+          );
+        }
+
+        switch (id) {
           case 'aboutmedocument':
             return (
-              <WindowWrapper
-                key={window}
-                title="About me"
-                priority={zIndex}
-                id={window}
-                onClose={onClose}
-                onFocus={openWindow}
-                isMobile={isMobile}
-                width={isMobile ? windowWidth : 400}
-                height={isMobile ? windowHeight : 650 }
-                setInspectedImage={setInspectedImage}
-              >
+              <WindowWrapper key={id} id={id} title="About me" priority={priority} onClose={onClose} onFocus={openWindow}
+                isMobile={isMobile} width={w(400)} height={h(650)} setInspectedImage={setInspectedImage}>
                 <AboutMe />
               </WindowWrapper>
             );
-          case 'GenAIPrompting':
+          case 'resume':
             return (
-              <WindowWrapper
-                key={window}
-                title="Generative AI Visual Prompting"
-                priority={zIndex}
-                id={window}
-                onClose={onClose}
-                onFocus={openWindow}
-                isMobile={isMobile}
-                width={isMobile ? windowWidth : 500}
-                height={isMobile ? windowHeight : 700}
-                setInspectedImage={setInspectedImage}
-              >
-                <GenAIVisuals setInspectedImage={setInspectedImage}/>
+              <WindowWrapper key={id} id={id} title="Resume" priority={priority} onClose={onClose} onFocus={openWindow}
+                isMobile={isMobile} width={w(400)} height={h(620)} setInspectedImage={setInspectedImage}>
+                <Resume setInspectedImage={setInspectedImage} />
               </WindowWrapper>
-            );
-          case 'churchdesigns':
-            return (
-              <WindowWrapper
-                key={window}
-                title="Church Camp Designs"
-                priority={zIndex}
-                id={window}
-                onClose={onClose}
-                onFocus={openWindow}
-                isMobile={isMobile}
-                width={isMobile ? windowWidth : 400}
-                height={isMobile ? windowHeight : 550}
-                setInspectedImage={setInspectedImage}
-              >
-                <ChurchDesigns setInspectedImage={setInspectedImage}/>
-              </WindowWrapper>
-            );
-            case 'resume':
-              return (
-                <WindowWrapper
-                  key={window}
-                  title="Resume"
-                  priority={zIndex}
-                  id={window}
-                  onClose={onClose}
-                  onFocus={openWindow}
-                  isMobile={isMobile}
-                  width={isMobile ? windowWidth : 400}
-                  height={isMobile ? windowHeight : 620}
-                  setInspectedImage={setInspectedImage}
-                  spawnPosition={{ top: '167px', left: `${windowWidth - 500}px` }}
-                >
-                  <Resume setInspectedImage={setInspectedImage}/>
-                </WindowWrapper>
-            );
-            case 'videoediting':
-              return (
-                <WindowWrapper
-                  key={window}
-                  title="Video Editing"
-                  priority={zIndex}
-                  id={window}
-                  onClose={onClose}
-                  onFocus={openWindow}
-                  isMobile={isMobile}
-                  width={isMobile ? windowWidth : 400}
-                  height={isMobile ? windowHeight : 550}
-                  setInspectedImage={setInspectedImage}
-                >
-                  <VideoEditing setInspectedImage={setInspectedImage}/>
-                </WindowWrapper>
             );
           default:
             return null;

@@ -1,6 +1,6 @@
 
 
-import { ReactNode, useRef, memo } from 'react';
+import { useState, ReactNode, useRef, memo } from 'react';
 import dynamic from 'next/dynamic';
 
 const Draggable = dynamic(() => import('react-draggable'), { ssr: false });
@@ -24,6 +24,8 @@ interface WindowWrapperProps {
   spawnPosition?: WindowSpawnPosition;
 }
 
+let spawnCount = 0;
+
 function WindowWrapperComponent({
   id,
   title,
@@ -38,10 +40,18 @@ function WindowWrapperComponent({
   spawnPosition,
 }: WindowWrapperProps) {
   const nodeRef = useRef<HTMLDivElement>(null);
-  const defaultTop = isMobile ? '0px' : '20px';
-  const defaultLeft = isMobile ? '0px' : '20px';
-  const initialTop = spawnPosition?.top ?? defaultTop;
-  const initialLeft = spawnPosition?.left ?? defaultLeft;
+  // Work out where this window opens, once. Each new window steps 28px down-right.
+  const [spawn] = useState(() => {
+    const offset = (spawnCount++ % 6) * 28;
+    const w = width ?? 400;
+    const h = height ?? 550;
+    return {
+      top: Math.max(16, Math.min(96 + offset, window.innerHeight - h - 16)),
+      left: Math.max(16, (window.innerWidth - w) / 2 + offset - 84),
+    };
+  });
+  const initialTop = spawnPosition?.top ?? (isMobile ? '0px' : `${spawn.top}px`);
+  const initialLeft = spawnPosition?.left ?? (isMobile ? '0px' : `${spawn.left}px`);
 
   return (
     <Draggable nodeRef={nodeRef} handle=".window-header" bounds="body" cancel=".no-drag"> 
@@ -49,13 +59,20 @@ function WindowWrapperComponent({
         ref={nodeRef}
         onPointerDown={() => onFocus?.(id)}
         style={{ width, height, zIndex: priority, top: initialTop, left: initialLeft }}
-        className="stroker border bg-black absolute flex flex-col"
+        className="fixed flex flex-col overflow-hidden rounded-[1.25rem] border-2 border-white bg-[#dcd5d5] text-[#3a3338] shadow-2xl"
       >
-        <div className="window-header flex justify-between items-center border-b pb-1 px-3 flex-shrink-0">
-          <h2 className="font-bold">{title}</h2>
-          <button className="no-drag" style={{zIndex: 1000}} onClick={() => onClose(id)}>✕</button>
+        <div className="window-header flex flex-shrink-0 cursor-grab items-center justify-between border-b-2 border-white bg-[#3b2f40] px-4 py-2 active:cursor-grabbing">
+          <h2 className="font-display text-2xl uppercase tracking-wide text-white">{title}</h2>
+          <button
+            type="button"
+            aria-label="Close window"
+            className="no-drag transition hover:brightness-110 active:scale-95"
+            onClick={() => onClose(id)}
+          >
+            <img src="/images/close_button.png" alt="" className="h-7 w-auto" />
+          </button>
         </div>
-        <div className="p-2 flex-1 overflow-hidden">{children}</div>
+        <div className="flex-1 overflow-hidden">{children}</div>
       </div>
     </Draggable>
 
