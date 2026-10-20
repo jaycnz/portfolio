@@ -107,8 +107,9 @@ mechanically: {
     heading: 'Mechanically: Parts Ordering App',
     date: 'JULY 2026',
     body: [
-      'Mechanically is a parts ordering app designed to streamline the process of ordering mechanical components for manufacturing. The app allows users to browse a catalog of parts, place orders, and track their shipments in real-time.',
-      'The project involved extensive user research, wireframing, and prototyping to ensure a seamless user experience.',
+      "Mechanically is an AI-powered parts ordering app that turns a mechanic's voice and photo/video diagnosis of a damaged vehicle into a confirmed, orderable parts list. It also searches and compares prices across suppliers and generates invoices automatically.",
+      'Built in 48 hours with a team of 4 at the Partly x WDCC x DEVS Hackathon, where it won Best Technical Implementation, judged the closest to production-deployable and the most complete end-to-end build.',
+      'I designed the end-to-end UX and UI in Figma, including a review flow so mechanics verify every AI-suggested part before ordering. I then handed it off and built the front end in React Native (Expo, NativeWind), integrated with a Python/TypeScript backend.',
     ],
     slides: [
     //   '/mechanically/1.png', 'Mechanically app interface',
@@ -120,10 +121,11 @@ mechanically: {
 guesswhich: {
     title: 'Guess Which: Research Methods Game',
     heading: 'Guess Which: Research Methods Game',
-    date: 'JULY 2026',
+    date: 'JULY 2025 - NOV 2025',
     body: [
-      'Guess Which is an interactive game designed to teach research methods in a fun and engaging way. Players are presented with various scenarios and must use critical thinking skills to identify the correct research approach.',
-      'The project involved extensive user testing and iteration to ensure the game was both educational and entertaining.',
+      'Guess Which is a real-time, two-player web game that teaches postgraduate research paradigms and methods. I built it for an academic client as my University of Auckland capstone, and it was nominated for an Excellence Award.',
+      'As front-end lead and designer, I designed the cards, lobby, gameplay and results screens in Figma and presented prototypes to the client. I then built the UI in React, TypeScript and Tailwind, connected to a Node.js/Socket.IO backend for live lobbies, turn logic and synced game state, and deployed it on AWS Amplify.',
+      'I ran user testing with external participants and used the findings to redesign the win/loss feedback and overlay interactions.',
     ],
     slides: [
     //   '/guesswhich/1.png', 'Guess Which game interface',
@@ -135,10 +137,10 @@ guesswhich: {
 esports: {
     title: 'Esport Club: Graphic Designer',
     heading: 'Esport Club: Graphic Designer',
-    date: 'MARCH 2026 - NOV 2026',
+    date: 'MAR 2026 - NOV 2026',
     body: [
-      'As a graphic designer for the Esport Club, I was responsible for creating visual assets for various marketing materials, including social media posts, event flyers, and promotional banners.',
-      "The project involved close collaboration with the socials team and executives to ensure brand consistency and effective communication of the club's message."
+      'As a graphic designer for the Auckland University Esports Club (AUEC), I design social media graphics and promotional posts for club events and web pages.',
+      'My idle-screen display graphics were adopted for use in the University Esports Lounge, selected on the strength of the design.',
     ],
     slides: [
     //   '/mechanically/1.png', 'Mechanically app interface',
@@ -150,32 +152,42 @@ esports: {
   basketball: {
     title: 'Basketball Team: Photos and Instagram Graphics',
     heading: 'Basketball Team: Photos and Instagram Graphics',
-    date: '',
-    body: [],
+    date: 'JUL 2025 - PRESENT',
+    body: [
+      "I'm the photographer and graphic designer for a social basketball team, producing the team's photos and social media graphics.",
+      "The team's account is the most followed social basketball team account in the University of Auckland UNIM8s League.",
+    ],
+    links: [{ label: 'Team Instagram', href: 'https://www.instagram.com/assketballers/' }],
     slides: [],
   },
 
   mixedmedia: {
     title: 'Mixed Media Art: Poster Series',
     heading: 'Mixed Media Art: Poster Series',
-    date: '',
-    body: [],
+    date: 'DEC 2024 - PRESENT',
+    body: ['In my free time, I enjoy creating mixed media art pieces. This series of posters is a collection of my work, showcasing my creativity and artistic skills.'],
+    links: [{ label: 'Team Instagram', href: 'https://www.instagram.com/designwithjayc/' }],
     slides: [],
   },
 
   invitely: {
     title: 'Discord Bot: Invitely',
     heading: 'Discord Bot: Invitely',
-    date: '',
-    body: [],
+    date: 'JUN 2024 - PRESENT',
+    body: [
+      'Invitely is a Discord bot built in Node.js that sends game invites as sealed, letter-style direct messages.',
+      "Each invite comes with a live lobby that updates as friends confirm they're in.",
+    ],
     slides: [],
   },
 
   soundscape: {
     title: 'Soundscape: Interactive Realtime Audio Visualiser',
     heading: 'Soundscape: Interactive Realtime Audio Visualiser',
-    date: '',
-    body: [],
+    date: 'MAR 2026 - NOV 2026',
+    body: [
+        'Soundscape is an interactive audio visualiser that generates real-time visuals based on audio input. It was built as a speculative design project to explore the intersection of sound and visual art.',
+    ],
     slides: [],
   },
 }
