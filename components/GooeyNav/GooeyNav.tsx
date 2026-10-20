@@ -41,7 +41,7 @@ interface GooeyNavProps {
   wobble?: number;
   hoverEffect?: boolean;
   className?: string;
-  style?: CSSProperties;
+  style?: CSSProperties & { [key: `--${string}`]: string };
 }
 
 interface Rect {
