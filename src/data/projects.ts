@@ -21,5 +21,5 @@ export const projects: Project[] = [
   { id: 'invitely', title: 'Discord Bot: Invitely', categories: ['CODE'], windowId: 'invitely' },
   { id: 'genai', title: '14 Day Visual Prompting Challenge', categories: ['GRAPHIC'], windowId: 'GenAIPrompting' },
   { id: 'soundscape', title: 'Soundscape: Interactive Realtime Audio Visualiser', categories: ['CODE', 'SPECULATIVE DESIGN'], windowId: 'soundscape' },
-
+  { id: 'videoediting', title: 'Video Editing (WIP)', categories: ['PHOTO/VIDEO'], windowId: 'videoediting' },
 ]

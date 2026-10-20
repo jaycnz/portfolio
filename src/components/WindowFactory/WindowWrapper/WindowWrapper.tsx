@@ -59,13 +59,20 @@ function WindowWrapperComponent({
         ref={nodeRef}
         onPointerDown={() => onFocus?.(id)}
         style={{ width, height, zIndex: priority, top: initialTop, left: initialLeft }}
-        className="stroker border bg-black fixed flex flex-col"
+        className="fixed flex flex-col overflow-hidden rounded-[1.25rem] border-2 border-white bg-[#dcd5d5] text-[#3a3338] shadow-2xl"
       >
-        <div className="window-header flex justify-between items-center border-b pb-1 px-3 flex-shrink-0">
-          <h2 className="font-bold">{title}</h2>
-          <button className="no-drag" style={{zIndex: 1000}} onClick={() => onClose(id)}>✕</button>
+        <div className="window-header flex flex-shrink-0 cursor-grab items-center justify-between border-b-2 border-white bg-[#3b2f40] px-4 py-2 active:cursor-grabbing">
+          <h2 className="font-display text-2xl uppercase tracking-wide text-white">{title}</h2>
+          <button
+            type="button"
+            aria-label="Close window"
+            className="no-drag transition hover:brightness-110 active:scale-95"
+            onClick={() => onClose(id)}
+          >
+            <img src="/images/close_button.png" alt="" className="h-7 w-auto" />
+          </button>
         </div>
-        <div className="p-2 flex-1 overflow-hidden">{children}</div>
+        <div className="flex-1 overflow-hidden">{children}</div>
       </div>
     </Draggable>
 
