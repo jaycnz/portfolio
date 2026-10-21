@@ -112,10 +112,10 @@ mechanically: {
       'I designed the end-to-end UX and UI in Figma, including a review flow so mechanics verify every AI-suggested part before ordering. I then handed it off and built the front end in React Native (Expo, NativeWind), integrated with a Python/TypeScript backend.',
     ],
     slides: [
-    //   '/mechanically/1.png', 'Mechanically app interface',
-    //   '/mechanically/2.png', 'Mechanically parts catalog',
-    //   '/mechanically/3.png', 'Mechanically order tracking',
-    ],
+      '/mechanically/suppliers.png',
+      '/mechanically/capture-and-review.png',
+      '/mechanically/context.png',
+    ].map((src, i) => img(src, `Church design ${i + 1}`)),
   },
 
 guesswhich: {
