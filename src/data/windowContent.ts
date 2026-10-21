@@ -158,7 +158,20 @@ esports: {
       "The team's account is the most followed social basketball team account in the University of Auckland UNIM8s League.",
     ],
     links: [{ label: 'Team Instagram', href: 'https://www.instagram.com/assketballers/' }],
-    slides: [],
+    slides: [
+      '/basketball/seasons snapshots.png',
+      '/basketball/champs.png',
+      '/basketball/potg.png',
+      '/basketball/thankyou.png',
+      '/basketball/game1notice.png',
+      '/basketball/s1notice.png',
+      '/basketball/s1result.png',
+      '/basketball/s1result2.png',
+      '/basketball/s2gameday.png',
+      '/basketball/s2result.png',
+      '/basketball/s2result2.png',
+      '/basketball/s2game2.png',
+    ].map((src, i) => img(src, `Basketball team graphic ${i + 1}`))
   },
 
   mixedmedia: {
