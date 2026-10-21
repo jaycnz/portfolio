@@ -23,7 +23,7 @@ export const windowContent: Record<string, WindowContent> = {
   GenAIPrompting: {
     title: 'Generative AI Prompting',
     heading: '14 Day Generative AI Visual Prompting Challenge',
-    date: 'MONTH 2025 - MONTH 2025',
+    date: 'SEP 2025 - OCT 2025',
     body: [
       'I spent 14 days writing and developing prompt frameworks to effectively generate visual outputs in a product photoshoot/marketing context. Each day, I created a new visual concept based off my choice, using generative AI tools such as Gemini 2.5 Nano Banana and Flux Kontext to bring my ideas to life.',
       'The challenge helped me understand the capabilities and limitations of AI in visual design, as well as improve my prompt engineering skills.',
@@ -69,7 +69,7 @@ export const windowContent: Record<string, WindowContent> = {
   churchdesigns: {
     title: 'Church Camp Designs',
     heading: 'Graphic Design for Church',
-    date: 'MONTH 20XX - PRESENT',
+    date: 'MARCH 2024 - PRESENT',
     body: [
       "I've been designing for my church for about 3 years now! Here is some of the work I've produced for various events.",
     ],
@@ -115,7 +115,7 @@ mechanically: {
       '/mechanically/suppliers.png',
       '/mechanically/capture-and-review.png',
       '/mechanically/context.png',
-    ].map((src, i) => img(src, `Church design ${i + 1}`)),
+    ].map((src, i) => img(src, `Mechanically ${i + 1}`)),
   },
 
 guesswhich: {
@@ -128,10 +128,10 @@ guesswhich: {
       'I ran user testing with external participants and used the findings to redesign the win/loss feedback and overlay interactions.',
     ],
     slides: [
-    //   '/guesswhich/1.png', 'Guess Which game interface',
-    //   '/guesswhich/2.png', 'Guess Which scenario selection',
-    //   '/guesswhich/3.png', 'Guess Which result display',
-    ],
+      ['/guesswhich/hero.png', 'Guess Which game hero shot'],
+      ['/guesswhich/cardlibrary.png', 'Guess Which card library'],
+      ['/guesswhich/details.png', 'Guess Which details'],
+    ].map(([src, alt]) => img(src, alt)),
   },
 
 esports: {
