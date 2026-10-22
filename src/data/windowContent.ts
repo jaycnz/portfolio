@@ -143,10 +143,14 @@ esports: {
       'My idle-screen display graphics were adopted for use in the University Esports Lounge, selected on the strength of the design.',
     ],
     slides: [
-    //   '/mechanically/1.png', 'Mechanically app interface',
-    //   '/mechanically/2.png', 'Mechanically parts catalog',
-    //   '/mechanically/3.png', 'Mechanically order tracking',
-    ],
+      '/esports/esport2.png',
+      '/esports/esport5.png',
+      '/esports/esport4.png',
+      '/esports/esport4.2.png',
+      '/esports/esport3.png',
+      '/esports/esport1.png',
+      '/esports/interclub.png',
+    ].map((src, i) => img(src, `Esports graphic ${i + 1}`)),
   },
 
   basketball: {
