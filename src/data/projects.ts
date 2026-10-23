@@ -18,8 +18,8 @@ export const projects: Project[] = [
   { id: 'basketball', title: 'Basketball Team: Photos and Instagram Graphics', categories: ['GRAPHIC', 'PHOTO/VIDEO'], windowId: 'basketball' },
   { id: 'mixed-media', title: 'Mixed Media Art: Poster Series', categories: ['GRAPHIC'], windowId: 'mixedmedia' },
   { id: 'camp', title: 'Camp Graphics (Backdrops, Booklets)', categories: ['GRAPHIC'], windowId: 'churchdesigns' },
-  { id: 'invitely', title: 'Discord Bot: Invitely', categories: ['CODE'], windowId: 'invitely' },
   { id: 'genai', title: '14 Day Visual Prompting Challenge', categories: ['GRAPHIC'], windowId: 'GenAIPrompting' },
   { id: 'soundscape', title: 'Soundscape: Interactive Realtime Audio Visualiser', categories: ['CODE', 'SPECULATIVE DESIGN'], windowId: 'soundscape' },
+  { id: 'invitely', title: 'Discord Bot: Invitely (WIP)', categories: ['CODE'], windowId: 'invitely' },
   { id: 'videoediting', title: 'Video Editing (WIP)', categories: ['PHOTO/VIDEO'], windowId: 'videoediting' },
 ]
