@@ -217,8 +217,14 @@ esports: {
     heading: 'Soundscape: Interactive Realtime Audio Visualiser',
     date: 'MAR 2026 - NOV 2026',
     body: [
-        'Soundscape is an interactive audio visualiser that generates real-time visuals based on audio input. It was built as a speculative design project to explore the intersection of sound and visual art.',
+        'Soundscape is my capstone project for my final year studying design at the University of Auckland. Itis an interactive audio visualiser that generates real-time visuals based on audio input. It was built as a speculative design project to spark conversations about the future of music in a world where AI-generated music is becoming increasingly prevalent.',
+        'It asks the question of how might design make the irreducibly human experience of music tangible and shared, when AI makes it so easy to overlook?',
+        'This project was built using TouchDesigner, a visual programming environment for real-time interactive multimedia content.',
     ],
-    slides: [],
+    slides: [
+      '/soundscape/1.png',
+      '/soundscape/2.png',
+      '/soundscape/3.png',
+    ].map((src, i) => img(src, `Soundscape visual ${i + 1}`))
   },
 }
