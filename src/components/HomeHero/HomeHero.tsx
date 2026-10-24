@@ -1,5 +1,12 @@
 import Image from 'next/image'
+import { PhotoStack } from '../../../components/PhotoStack/PhotoStack'
 import { Section } from '../Section'
+
+const PHOTOS = [
+  { src: '/images/profile2.jpg', alt: 'Photo of Jay' },
+  { src: '/images/profile4.png', alt: 'Jay at work' },   // swap for your real photos
+  { src: '/images/profile5.png', alt: 'Jay on a hike' },
+]
 
 export function HomeHero() {
   return (
@@ -30,14 +37,9 @@ export function HomeHero() {
           </div>
         </div>
 
-        {/* SWAP PHOTO LATER!! ) */}
-        <Image
-          src="/images/profile2.jpg"
-          alt="Photo of Jay"
-          width={400}
-          height={400}
-          priority
-          className="size-44 shrink-0 rounded-[28%] object-cover md:size-56 lg:size-64"
+        <PhotoStack
+          photos={PHOTOS}
+          className="size-44 md:size-56 lg:size-64"
         />
       </div>
 
