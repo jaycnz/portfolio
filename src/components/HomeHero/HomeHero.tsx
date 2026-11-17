@@ -3,14 +3,14 @@ import { PhotoStack } from '../../../components/PhotoStack/PhotoStack'
 import { Section } from '../Section'
 
 const PHOTOS = [
-  { src: '/images/profile2.jpg', alt: 'Photo of Jay' },
+  { src: '/images/profile6.png', alt: 'Photo of Jay' },
   { src: '/images/profile4.png', alt: 'Jay at work' },   // swap for your real photos
   { src: '/images/profile5.png', alt: 'Jay on a hike' },
 ]
 
 export function HomeHero() {
   return (
-    <Section id="home" className="items-center justify-center">
+    <Section id="home" className="items-center justify-center min-h-150">
       <div className="mx-auto flex w-full max-w-5xl flex-col-reverse items-center gap-10 md:flex-row md:justify-between md:gap-12">
         {/* Text */}
         <div className="w-full md:max-w-xl lg:max-w-2xl">
@@ -44,7 +44,6 @@ export function HomeHero() {
       </div>
 
       <p className="absolute inset-x-0 bottom-24 text-center text-sm italic text-white/80 md:bottom-8">
-        Scroll down for more
       </p>
     </Section>
   )
