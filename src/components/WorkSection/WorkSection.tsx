@@ -16,7 +16,7 @@ export function WorkSection() {
   )
 
   return (
-    <Section id="work" className="justify-center">
+    <Section id="work" className="min-h-0 justify-start pt-4 pb-8 md:pt-6 md:pb-12">
         <h2 className="mb-6 text-center font-display text-3xl sm:text-4xl md:text-5xl">
           Work/Projects
         </h2>
